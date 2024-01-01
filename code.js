@@ -11,6 +11,7 @@ Array.prototype.myFilter = function (callBack, thisArg) {
       filteredArr.push(this[i]);
     }
   }
+
   return filteredArr;
 };
 
@@ -23,6 +24,10 @@ console.log(arrayTest2.myFilter((item) => item % 2 == 0));
 // Task 2.
 
 const createDebounceFunction = (callback, ms = 300) => {
+  if (typeof callback !== "function") {
+    throw new Error("Function reiceves callback as first argument!");
+  }
+
   let timer;
 
   return (customTimeout, ...args) => {
