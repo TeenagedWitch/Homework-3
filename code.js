@@ -4,10 +4,8 @@ Array.prototype.myFilter = function (callBack, thisArg) {
 
   for (let i = 0; i < this.length; i++) {
     const context = thisArg || globalThis;
-    console.log(context);
 
     if (callBack.call(context, this[i])) {
-      console.log(this, this[i]);
       filteredArr.push(this[i]);
     }
   }
